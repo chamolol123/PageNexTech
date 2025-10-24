@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proyectos — NexTech</title>
+
+  <meta name="description" content="Proyectos y avances actuales de NexTech: plataformas IoT, integraciones, apps web/móvil y analítica." />
+  <link rel="canonical" href="https://nextech.example/proyectos.html" />
+
+  <meta property="og:title" content="Proyectos — NexTech">
+  <meta property="og:description" content="Explora los proyectos y avances en curso de NexTech.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="NexTech.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="NexTech.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navbar (Proyectos activo) -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="main.html#top" class="brand">NexTech</a>
+
+      <button class="hamburger" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="primaryNav" class="nav-links" aria-label="Navegación principal">
+        <a href="main.html#empresa">Empresa</a>
+        <a href="main.html#servicios">Servicios</a>
+        <a href="proyectos.html" class="active">Proyectos</a>
+        <a href="main.html#valores">Valores</a>
+        <a href="main.html#equipo">Equipo</a>
+        <a href="main.html#contacto" class="nav-cta">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Encabezado de la página -->
+  <section class="hero" style="min-height: 40vh;">
+    <div class="hero-content">
+      <img src="NexTech.jpg" alt="Logo NexTech" class="hero-logo" style="width:min(40vw,220px);" />
+      <h1 class="hero-title">Proyectos & Avances</h1>
+      <p class="hero-subtitle">Explora los desarrollos en curso dentro de NexTech.</p>
+      <div class="hero-actions">
+        <a class="btn btn-ghost" href="main.html#servicios">← Volver a Servicios</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section bg-light" id="proyectos">
+      <div class="container">
+        <div class="proj-filters" role="tablist" aria-label="Filtrar proyectos">
+          <button class="chip is-active" data-filter="all" aria-selected="true">Todos</button>
+          <button class="chip" data-filter="iot">IoT</button>
+          <button class="chip" data-filter="web">Web</button>
+          <button class="chip" data-filter="api">APIs</button>
+          <button class="chip" data-filter="data">Data/BI</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Ejemplos (sustituye por tus proyectos reales) -->
+          <article class="project-card" data-cat="iot api" data-aos="zoom-in">
+            <header class="project-head">
+              <h3 class="project-title">Plataforma IoT para Monitoreo Industrial</h3>
+              <span class="status-badge status-enprogreso">En progreso</span>
+            </header>
+            <p class="project-desc">Ingesta desde sensores Modbus/LoRaWAN, panel en tiempo real, alertas y control.</p>
+            <div class="progress"><div class="progress-bar" style="--pct:68%"><span class="progress-label">68%</span></div></div>
+            <ul class="tags"><li>#IoT</li><li>#TiempoReal</li><li>#Seguridad</li></ul>
+            <div class="project-actions">
+              <a class="btn btn-ghost" href="#" aria-disabled="true">Ficha (pronto)</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-cat="web api" data-aos="zoom-in" data-aos-delay="100">
+            <header class="project-head">
+              <h3 class="project-title">Portal Web para Clientes</h3>
+              <span class="status-badge status-piloto">Piloto</span>
+            </header>
+            <p class="project-desc">Autogestión de dispositivos, reportes y notificaciones.</p>
+            <div class="progress"><div class="progress-bar" style="--pct:82%"><span class="progress-label">82%</span></div></div>
+            <ul class="tags"><li>#WebApp</li><li>#APIs</li><li>#UX</li></ul>
+            <div class="project-actions">
+              <a class="btn btn-ghost" href="#" aria-disabled="true">Demo (pronto)</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-cat="data" data-aos="zoom-in" data-aos-delay="200">
+            <header class="project-head">
+              <h3 class="project-title">Tableros de Analítica Operativa</h3>
+              <span class="status-badge status-plan">En planificación</span>
+            </header>
+            <p class="project-desc">KPIs de mantenimiento, pronóstico de fallas y optimización de consumos (ETL).</p>
+            <div class="progress"><div class="progress-bar" style="--pct:25%"><span class="progress-label">25%</span></div></div>
+            <ul class="tags"><li>#Data</li><li>#BI</li><li>#ETL</li></ul>
+            <div class="project-actions">
+              <a class="btn btn-ghost" href="#" aria-disabled="true">Ver tablero (pronto)</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> NexTech. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" aria-label="Volver arriba" title="Volver arriba">↑</button>
+
+  <script>
+    // Año
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toggle menú móvil
+    const menuBtn = document.getElementById('menuToggle');
+    const nav = document.getElementById('primaryNav');
+    menuBtn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Scroll-to-top
+    const btn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible');
+    });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Filtros de proyectos
+    const chips = document.querySelectorAll('.chip');
+    const cards = document.querySelectorAll('.project-card');
+    chips.forEach(chip => chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      const f = chip.dataset.filter;
+      cards.forEach(card => {
+        const show = f === 'all' || card.dataset.cat.includes(f);
+        card.style.display = show ? '' : 'none';
+      });
+    }));
+  </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      offset: 100,
+      disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    });
+  </script>
+</body>
+</html>

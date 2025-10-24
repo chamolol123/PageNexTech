@@ -105,6 +105,70 @@ img{ max-width:100%; display:block; }
 }
 .services li:hover{ background:rgba(255,255,255,0.3); }
 
+/* ---- Proyectos ---- */
+.proj-filters{
+  display:flex; gap:8px; flex-wrap:wrap; justify-content:center;
+  margin:18px 0 8px;
+}
+.chip{
+  border:1px solid rgba(11,27,51,.15);
+  background:#fff; color:var(--text);
+  padding:8px 12px; border-radius:999px; cursor:pointer;
+  transition:background .25s, border-color .25s, transform .1s;
+  font-weight:600;
+}
+.chip:hover{ background:#f0f6ff; transform:translateY(-1px); }
+.chip.is-active{ border-color:var(--brand); color:var(--brand-700); }
+
+.projects-grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap:18px; margin-top:14px;
+}
+.project-card{
+  grid-column: span 6;
+  background:#fff; border-radius:14px; box-shadow:var(--shadow);
+  padding:18px; display:flex; flex-direction:column; gap:12px;
+}
+@media (max-width:900px){ .project-card{ grid-column: span 12; } }
+
+.project-head{
+  display:flex; justify-content:space-between; align-items:center; gap:10px;
+}
+.project-title{ font-size:18px; color:var(--brand-700); }
+.project-desc{ color:var(--muted); }
+
+.status-badge{
+  font-size:12px; font-weight:800; letter-spacing:.2px;
+  padding:6px 10px; border-radius:999px; color:#0b1b33; background:#e5f2ff;
+}
+.status-enprogreso{ background:#eaf3ff; }
+.status-piloto{ background:#e9f9ef; color:#064e3b; }
+.status-plan{ background:#fff7ed; color:#7c2d12; }
+
+.progress{
+  background:#f1f5f9; border-radius:999px; height:12px; position:relative;
+}
+.progress-bar{
+  --pct: 0%;
+  width:var(--pct); height:100%;
+  background:linear-gradient(90deg, var(--brand), var(--accent));
+  border-radius:999px; position:relative; transition:width .8s ease;
+}
+.progress-label{
+  position:absolute; right:8px; top:50%; transform:translateY(-50%);
+  font-size:11px; color:#fff; font-weight:700;
+}
+
+.tags{ list-style:none; display:flex; gap:8px; flex-wrap:wrap; }
+.tags li{
+  font-size:12px; padding:6px 10px; border-radius:999px;
+  background:#f3f4f6; color:#334155; font-weight:600;
+}
+
+.project-actions{ display:flex; gap:8px; }
+.project-actions .btn-ghost{ padding:8px 12px; }
+
 /* ========== Valores ========== */
 .values{ list-style:none; padding:0; max-width:900px; margin:0 auto; }
 .values li{
