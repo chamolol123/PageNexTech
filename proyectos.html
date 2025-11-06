@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Proyectos — NexTech</title>
 
-  <meta name="description" content="Proyectos y avances actuales de NexTech: plataformas IoT, integraciones, apps web/móvil y analítica." />
-  <link rel="canonical" href="https://nextech.example/proyectos.html" />
-
+  <meta name="description" content="Proyecto IoT en Raspberry con arquitectura de microservicios: origen, motivación y tecnologías utilizadas." />
   <meta property="og:title" content="Proyectos — NexTech">
-  <meta property="og:description" content="Explora los proyectos y avances en curso de NexTech.">
+  <meta property="og:description" content="Proyecto IoT en Raspberry con microservicios. Conoce el origen (tesis), la motivación técnica y el stack.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="NexTech.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -23,15 +21,10 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Navbar (Proyectos activo) -->
+  <!-- Navbar -->
   <header class="navbar">
     <div class="container nav-inner">
       <a href="main.html#top" class="brand">NexTech</a>
-
-      <button class="hamburger" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primaryNav">
-        <span></span><span></span><span></span>
-      </button>
-
       <nav id="primaryNav" class="nav-links" aria-label="Navegación principal">
         <a href="main.html#empresa">Empresa</a>
         <a href="main.html#servicios">Servicios</a>
@@ -43,12 +36,14 @@
     </div>
   </header>
 
-  <!-- Encabezado de la página -->
+  <!-- Hero -->
   <section class="hero" style="min-height: 40vh;">
     <div class="hero-content">
-      <img src="NexTech.jpg" alt="Logo NexTech" class="hero-logo" style="width:min(40vw,220px);" />
-      <h1 class="hero-title">Proyectos & Avances</h1>
-      <p class="hero-subtitle">Explora los desarrollos en curso dentro de NexTech.</p>
+      <div class="hero-logo-wrapper" data-aos="zoom-in">
+        <img src="NexTech.jpg" alt="Logo NexTech" class="hero-logo" style="width:min(40vw,220px);" />
+      </div>
+      <h1 class="hero-title">Proyecto IoT en Raspberry</h1>
+      <p class="hero-subtitle">Arquitectura en microservicios, portable hasta dispositivos como la ESP32.</p>
       <div class="hero-actions">
         <a class="btn btn-ghost" href="main.html#servicios">← Volver a Servicios</a>
       </div>
@@ -56,39 +51,102 @@
   </section>
 
   <main>
-    <section class="section bg-light" id="proyectos">
+    <section class="section bg-light" id="proyecto">
       <div class="container">
-        <div class="proj-filters" role="tablist" aria-label="Filtrar proyectos">
-          <button class="chip is-active" data-filter="all" aria-selected="true">Todos</button>
-          <button class="chip" data-filter="iot">IoT</button>
-          <button class="chip" data-filter="web">Web</button>
-        </div>
-
         <div class="projects-grid">
-          <!-- Ejemplos (sustituye por tus proyectos reales) -->
-          <article class="project-card" data-cat="iot api" data-aos="zoom-in">
+          <!-- ÚNICO PROYECTO -->
+          <article class="project-card project-card--wide" data-aos="fade-up">
             <header class="project-head">
-              <h3 class="project-title">Plataforma IoT para Monitoreo Industrial</h3>
+              <h2 class="project-title">Aplicación de Objetos Inteligentes con Microservicios</h2>
               <span class="status-badge status-enprogreso">En progreso</span>
             </header>
-            <p class="project-desc">Aplicación para orquestación de Objetos inteligentes con estructura en microservicios.</p>
-            <div class="progress"><div class="progress-bar" style="--pct:68%"><span class="progress-label">68%</span></div></div>
-            <ul class="tags"><li>#IoT</li><li>#TiempoReal</li><li>#Seguridad</li></ul>
-            <div class="project-actions">
-              <a class="btn btn-ghost" href="#" aria-disabled="true">Ficha (pronto)</a>
-            </div>
-          </article>
 
-          <article class="project-card" data-cat="web api" data-aos="zoom-in" data-aos-delay="100">
-            <header class="project-head">
-              <h3 class="project-title">Portal Web para Clientes</h3>
-              <span class="status-badge status-piloto">Piloto</span>
-            </header>
-            <p class="project-desc">Autogestión de dispositivos, reportes y notificaciones.</p>
-            <div class="progress"><div class="progress-bar" style="--pct:82%"><span class="progress-label">82%</span></div></div>
-            <ul class="tags"><li>#WebApp</li><li>#APIs</li><li>#UX</li></ul>
+            <p class="project-desc">
+              Plataforma IoT desplegada en <strong>Raspberry Pi</strong> que orquesta objetos inteligentes
+              (sensores/actuadores) mediante servicios desacoplados. El diseño por microservicios permite
+              ejecutar componentes de forma independiente —incluyendo variantes ligeras aptas para <strong>ESP32</strong>.
+            </p>
+
+            <!-- Avance -->
+            <div class="progress" aria-label="Progreso del proyecto">
+              <div class="progress-bar" style="--pct:78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+                <span class="progress-label">78%</span>
+              </div>
+            </div>
+
+            <!-- Meta / Resumen -->
+            <div class="project-body">
+              <section class="block" data-aos="fade-up" data-aos-delay="50">
+                <h3>De dónde nace</h3>
+                <p>
+                  El proyecto surge como <strong>tesis de estudiantes</strong> orientada a crear una solución IoT modular
+                  para monitoreo y control en tiempo real. La meta inicial fue validar una arquitectura
+                  extensible que facilite pruebas rápidas en laboratorio (Raspberry Pi) y posterior
+                  despliegue en hardware embebido de bajo consumo.
+                </p>
+              </section>
+
+              <section class="block" data-aos="fade-up" data-aos-delay="100">
+                <h3>¿Por qué microservicios?</h3>
+                <ul class="meta">
+                  <li><strong>Portabilidad hacia ESP32:</strong> separar funciones en servicios pequeños permite crear
+                    <em>builds</em> ligeras (solo lo necesario) para ejecutarse en la ESP32 o cerca del borde.</li>
+                  <li><strong>Escalabilidad y resiliencia:</strong> cada servicio se despliega y escala de manera
+                    independiente, evitando cuellos de botella del monolito.</li>
+                  <li><strong>Mantenibilidad:</strong> dominios bien definidos (ingesta, reglas, notificaciones, APIs),
+                    ciclos de vida y stacks diferentes sin interferir.</li>
+                </ul>
+              </section>
+
+              <section class="block" data-aos="fade-up" data-aos-delay="150">
+                <h3>Tecnologías utilizadas</h3>
+                <ul class="stack">
+                  <li><strong>Hardware:</strong> Raspberry Pi (gateway), sensores/actuadores; destino ligero: <strong>ESP32</strong>.</li>
+                  <li><strong>Mensajería:</strong> MQTT (broker), tópicos por dispositivo/servicio.</li>
+                  <li><strong>Back-end (servicios):</strong> Java/Spring Boot y/o Python (FastAPI) en contenedores.</li>
+                  <li><strong>Persistencia:</strong> PostgreSQL / SQLite según despliegue.</li>
+                  <li><strong>Orquestación:</strong> Docker Compose (desarrollo) y opción a K3s/Kubernetes (escala).</li>
+                  <li><strong>Observabilidad:</strong> logs estructurados, métricas y panel básico de eventos.</li>
+                  <li><strong>Front:</strong> app web para estado de dispositivos y reglas.</li>
+                </ul>
+                <ul class="tags">
+                  <li>#IoT</li><li>#Microservicios</li><li>#MQTT</li><li>#RaspberryPi</li><li>#ESP32</li>
+                </ul>
+              </section>
+
+              <section class="block" data-aos="fade-up" data-aos-delay="200">
+                <h3>Prototipo funcional</h3>
+                <p>
+                  A continuación se muestra una fotografía del prototipo implementado en laboratorio.
+                  El sistema utiliza una <strong>Raspberry Pi</strong> como nodo principal, con sensores,
+                  actuadores y módulos de comunicación coordinados mediante microservicios.
+                </p>
+
+                <figure class="project-image">
+                  <img src="imagen_Proyecto.jpg" alt="Prototipo IoT con Raspberry Pi y microservicios de NexTech" loading="lazy" />
+                  <figcaption>
+                    Prototipo de aplicación IoT con estructura en microservicios, desarrollado como parte de la tesis de estudiantes NexTech.
+                  </figcaption>
+                </figure>
+              </section>
+
+              <section class="block" data-aos="fade-up" data-aos-delay="200">
+                <h3>Arquitectura (vista rápida)</h3>
+                <ul class="meta">
+                  <li><strong>Device Agent:</strong> cliente MQTT en el borde (Raspberry/ESP32) para publicar telemetría y recibir comandos.</li>
+                  <li><strong>Ingesta:</strong> servicio que normaliza mensajes y valida esquema.</li>
+                  <li><strong>Reglas/Alerts:</strong> evaluación de umbrales y disparo de notificaciones.</li>
+                  <li><strong>API Gateway:</strong> expone endpoints para UI e integraciones.</li>
+                  <li><strong>UI Web:</strong> tablero de dispositivos, eventos y control básico.</li>
+                </ul>
+              </section>
+            </div>
+
             <div class="project-actions">
-              <a class="btn btn-ghost" href="#" aria-disabled="true">Demo (pronto)</a>
+              <a class="btn btn-primary" href="mailto:contacto@nextech.com?subject=Proyecto%20IoT%20NexTech&body=Quiero%20saber%20m%C3%A1s%20del%20proyecto%20IoT%20en%20Raspberry.">
+                Solicitar información
+              </a>
+              <a class="btn btn-ghost" href="README.md">README (notas del proyecto)</a>
             </div>
           </article>
         </div>
@@ -105,40 +163,12 @@
   <button id="scrollTopBtn" aria-label="Volver arriba" title="Volver arriba">↑</button>
 
   <script>
-    // Año
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Toggle menú móvil
-    const menuBtn = document.getElementById('menuToggle');
-    const nav = document.getElementById('primaryNav');
-    menuBtn.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(open));
-    });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    }));
-
-    // Scroll-to-top
     const btn = document.getElementById('scrollTopBtn');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible');
     });
     btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // Filtros de proyectos
-    const chips = document.querySelectorAll('.chip');
-    const cards = document.querySelectorAll('.project-card');
-    chips.forEach(chip => chip.addEventListener('click', () => {
-      chips.forEach(c => c.classList.remove('is-active'));
-      chip.classList.add('is-active');
-      const f = chip.dataset.filter;
-      cards.forEach(card => {
-        const show = f === 'all' || card.dataset.cat.includes(f);
-        card.style.display = show ? '' : 'none';
-      });
-    }));
   </script>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
