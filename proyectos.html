@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Proyectos — NexTech</title>
 
-  <meta name="description" content="Proyecto IoT en Raspberry con arquitectura de microservicios: origen académico, motivación técnica y stack." />
+  <meta name="description" content="Proyecto IoT en Raspberry con microservicios en Python/FastAPI y persistencia semántica en ontologías OWL." />
   <meta property="og:title" content="Proyectos — NexTech">
-  <meta property="og:description" content="Proyecto IoT en Raspberry con microservicios y portabilidad hacia ESP32.">
+  <meta property="og:description" content="IoT en Raspberry con microservicios (Python/FastAPI), sin BD relacional; persistencia con ontologías OWL.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="NexTech.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -18,7 +18,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- Estilos globales del sitio -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -49,7 +48,7 @@
         <img src="NexTech.jpg" alt="Logo NexTech" class="hero-logo" />
       </div>
       <h1 class="hero-title">Proyecto IoT en Raspberry</h1>
-      <p class="hero-subtitle">Arquitectura en microservicios con portabilidad hacia dispositivos como la ESP32.</p>
+      <p class="hero-subtitle">Microservicios en Python/FastAPI · Persistencia semántica con ontologías OWL.</p>
       <div class="hero-actions">
         <a class="btn btn-ghost" href="main.html#servicios">← Volver a Servicios</a>
       </div>
@@ -68,9 +67,9 @@
             </header>
 
             <p class="project-desc">
-              Plataforma IoT desplegada en <strong>Raspberry Pi</strong> que orquesta sensores y actuadores mediante
-              servicios desacoplados. El diseño por microservicios permite ejecutar componentes de forma independiente,
-              incluyendo variantes ligeras aptas para <strong>ESP32</strong>.
+              Plataforma IoT ejecutándose en <strong>Raspberry Pi</strong> que orquesta sensores y actuadores mediante
+              <strong>microservicios en Python (FastAPI)</strong>. La modularidad permite variantes ligeras para
+              <strong>ESP32</strong> y despliegue por componentes en el borde.
             </p>
 
             <!-- Avance -->
@@ -84,66 +83,69 @@
               <section class="block" data-aos="fade-up" data-aos-delay="50">
                 <h3>De dónde nace</h3>
                 <p>
-                  El proyecto surge como <strong>tesis de estudiantes</strong> con el objetivo de construir una solución IoT
-                  modular para monitoreo y control en tiempo real. Se prioriza la prueba rápida en laboratorio (Raspberry Pi)
-                  y la portabilidad hacia hardware embebido de bajo consumo para despliegues en campo.
+                  Este desarrollo surge como <strong>tesis de estudiantes</strong> con el objetivo de validar una
+                  arquitectura IoT <em>portable</em> y mantenible: primero en laboratorio (Raspberry Pi) y luego en
+                  entornos embebidos de bajo consumo (ESP32). El foco es la <strong>orquestación desacoplada</strong> de
+                  dispositivos y reglas de negocio.
                 </p>
               </section>
 
               <section class="block" data-aos="fade-up" data-aos-delay="100">
                 <h3>¿Por qué microservicios?</h3>
                 <ul class="meta">
-                  <li><strong>Portabilidad hacia ESP32:</strong> separar funciones en servicios pequeños permite crear
-                    builds ligeras (solo lo necesario) para ejecutarse en la ESP32 o en el borde.</li>
-                  <li><strong>Escalabilidad y resiliencia:</strong> cada servicio se despliega y escala de forma independiente,
-                    evitando cuellos de botella del monolito.</li>
-                  <li><strong>Mantenibilidad:</strong> dominios bien definidos (ingesta, reglas, notificaciones, APIs)
-                    permiten ciclos de vida y stacks diferentes sin interferir.</li>
+                  <li><strong>Portabilidad hacia ESP32:</strong> separar funciones en servicios pequeños habilita
+                    <em>builds</em> ligeras con lo estrictamente necesario para la MCU.</li>
+                  <li><strong>Escalabilidad y resiliencia:</strong> cada servicio (ingesta, reglas, notificaciones, etc.)
+                    se despliega y evoluciona de forma independiente.</li>
+                  <li><strong>Especialización por dominio:</strong> servicios con responsabilidades claras, facilitando
+                    pruebas y sustitución de componentes sin romper el sistema.</li>
                 </ul>
               </section>
 
               <section class="block" data-aos="fade-up" data-aos-delay="150">
-                <h3>Tecnologías utilizadas</h3>
+                <h3>Tecnologías utilizadas (actuales)</h3>
                 <ul class="stack">
-                  <li><strong>Hardware:</strong> Raspberry Pi (gateway), sensores/actuadores; destino ligero: <strong>ESP32</strong>.</li>
-                  <li><strong>Mensajería:</strong> <strong>MQTT</strong> como broker; tópicos por dispositivo/servicio.</li>
-                  <li><strong>Back-end (servicios):</strong> <strong>Java/Spring Boot</strong> y/o <strong>Python/FastAPI</strong> en contenedores.</li>
-                  <li><strong>Persistencia:</strong> PostgreSQL en gateway; SQLite/archivo en despliegues edge.</li>
-                  <li><strong>Orquestación:</strong> Docker Compose (dev) con miras a K3s/Kubernetes para escalar.</li>
-                  <li><strong>Observabilidad:</strong> logs estructurados, métricas básicas y tablero de eventos.</li>
-                  <li><strong>Front:</strong> app web para estado de dispositivos, reglas y control.</li>
+                  <li><strong>Lenguaje / Framework:</strong> <strong>Python</strong> con <strong>FastAPI</strong> (todos los servicios).</li>
+                  <li><strong>Mensajería:</strong> <strong>MQTT</strong> como bus de eventos para telemetría y control.</li>
+                  <li><strong>Persistencia semántica:</strong> <strong>Ontologías OWL</strong> (archivos) para modelar
+                    dispositivos, estados y relaciones. Consultas/manipulación con librerías tipo <em>RDFLib</em> /
+                    <em>OWLReady2</em>. <u>No usamos base de datos relacional</u>.</li>
+                  <li><strong>Despliegue:</strong> Raspberry Pi como gateway; componentes seleccionados compilados/adaptados
+                    para <strong>ESP32</strong> cuando se requiere ejecutar en el borde.</li>
+                  <li><strong>Integración de UI:</strong> La <strong>interfaz de usuario es una app móvil</strong> desarrollada por otro equipo
+                    que consume nuestra API; <u>no tenemos front web propio</u>.</li>
                 </ul>
                 <ul class="tags">
-                  <li>#IoT</li><li>#Microservicios</li><li>#MQTT</li><li>#RaspberryPi</li><li>#ESP32</li>
+                  <li>#Python</li><li>#FastAPI</li><li>#MQTT</li><li>#OWL</li><li>#RaspberryPi</li><li>#ESP32</li>
                 </ul>
               </section>
 
               <section class="block" data-aos="fade-up" data-aos-delay="200">
                 <h3>Prototipo funcional</h3>
                 <p>
-                  Fotografía del prototipo implementado en laboratorio. El sistema utiliza una <strong>Raspberry Pi</strong>
-                  como nodo principal, con sensores, actuadores y módulos de comunicación coordinados mediante microservicios.
+                  Fotografía del prototipo implementado en laboratorio. El gateway en Raspberry Pi coordina sensores,
+                  actuadores y módulos de comunicación; la API expone servicios para que la app móvil gestione reglas y estados.
                 </p>
                 <figure class="project-image">
                   <img src="imagen_Proyecto.jpg" alt="Prototipo IoT con Raspberry Pi y microservicios de NexTech" loading="lazy" />
-                  <figcaption>Prototipo de aplicación IoT con estructura en microservicios, desarrollado como parte de la tesis de estudiantes.</figcaption>
+                  <figcaption>Prototipo IoT con microservicios (Python/FastAPI) y persistencia semántica en OWL.</figcaption>
                 </figure>
               </section>
 
               <section class="block" data-aos="fade-up" data-aos-delay="250">
                 <h3>Arquitectura (vista rápida)</h3>
                 <ul class="meta">
-                  <li><strong>Device Agent:</strong> cliente MQTT en el borde (Raspberry/ESP32) para publicar telemetría y recibir comandos.</li>
-                  <li><strong>Ingesta:</strong> servicio que normaliza mensajes y valida esquemas.</li>
-                  <li><strong>Reglas/Alerts:</strong> evaluación de umbrales y disparo de notificaciones.</li>
-                  <li><strong>API Gateway:</strong> expone endpoints para UI e integraciones.</li>
-                  <li><strong>UI Web:</strong> tablero de dispositivos, eventos y control básico.</li>
+                  <li><strong>Device Agent (Raspberry/ESP32):</strong> cliente MQTT para publicar telemetría y recibir comandos.</li>
+                  <li><strong>Ingesta (FastAPI):</strong> normaliza mensajes MQTT y actualiza el modelo semántico (OWL).</li>
+                  <li><strong>Reglas/Notificaciones (FastAPI):</strong> evalúa condiciones y emite eventos/acciones.</li>
+                  <li><strong>API de Integración (FastAPI):</strong> endpoints consumidos por la <em>app móvil</em> (no web).</li>
+                  <li><strong>Persistencia:</strong> ontologías OWL versionadas en archivos; sin BD relacional.</li>
                 </ul>
               </section>
             </div>
 
             <div class="project-actions">
-              <a class="btn btn-primary" href="mailto:contacto@nextech.com?subject=Proyecto%20IoT%20NexTech&body=Quiero%20saber%20m%C3%A1s%20del%20proyecto%20IoT%20en%20Raspberry.">Solicitar información</a>
+              <a class="btn btn-primary" href="mailto:contacto@nextech.com?subject=Proyecto%20IoT%20NexTech&body=Quiero%20m%C3%A1s%20detalles%20t%C3%A9cnicos%20del%20proyecto%20IoT%20(FastAPI%20+%20OWL).">Solicitar información</a>
               <a class="btn btn-ghost" href="README.md">README (notas del proyecto)</a>
             </div>
           </article>
@@ -168,14 +170,16 @@
     // Menú móvil
     const menuBtn = document.getElementById('menuToggle');
     const nav = document.getElementById('primaryNav');
-    menuBtn.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(open));
-    });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    }));
+    if (menuBtn && nav){
+      menuBtn.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+      });
+      nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }));
+    }
 
     // Scroll-to-top
     const btn = document.getElementById('scrollTopBtn');
