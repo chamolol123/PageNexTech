@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulación — NexTech</title>
+
+  <meta name="description" content="Simulación del objeto inteligente en Wokwi, decisiones técnicas y adaptación del microservicio de Recursos y Datastreams." />
+  <meta property="og:title" content="Simulación — NexTech">
+  <meta property="og:description" content="Cómo se simuló el microservicio IoT en Wokwi, restricciones, decisiones técnicas y resultados.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="NexTech.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="NexTech.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="main.html#top" class="brand">NexTech</a>
+
+      <button class="hamburger" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="primaryNav" class="nav-links" aria-label="Navegación principal">
+        <a href="main.html#empresa">Empresa</a>
+        <a href="main.html#servicios">Servicios</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="simulacion.html" class="active">Simulación</a>
+        <a href="main.html#valores">Valores</a>
+        <a href="main.html#equipo">Equipo</a>
+        <a href="main.html#contacto" class="nav-cta">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height:40vh;">
+    <div class="hero-content">
+      <div class="hero-logo-wrapper" data-aos="zoom-in">
+        <img src="NexTech.jpg" alt="Logo NexTech" class="hero-logo" />
+      </div>
+      <h1 class="hero-title">Simulación del Objeto Inteligente</h1>
+      <p class="hero-subtitle">
+        Validación del microservicio de Recursos y Datastreams en Wokwi, adaptado a las restricciones del entorno virtual.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-ghost" href="proyectos.html">← Volver a Proyectos</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section bg-light" id="simulacion">
+      <div class="container">
+        <div class="projects-grid">
+          <article class="project-card project-card--wide" data-aos="fade-up">
+            <header class="project-head">
+              <h2 class="project-title">Simulación en Wokwi del Objeto Inteligente</h2>
+              <span class="status-badge status-enprogreso">Proyecto culminado</span>
+            </header>
+
+            <p class="project-desc">
+              Se construyó una simulación en <strong>Wokwi</strong> para reproducir el comportamiento del
+              microservicio que gestiona los recursos y datastreams del Objeto Inteligente, originalmente
+              pensado para ejecutarse en una <strong>ESP32</strong> con MQTT y GPIO reales.
+            </p>
+
+            <div class="project-body">
+              <!-- 1. Contexto general -->
+              <section class="block" data-aos="fade-up" data-aos-delay="50">
+                <h3>Contexto del proyecto</h3>
+                <p>
+                  El diseño original se basa en una arquitectura de <strong>microservicios</strong> donde el Objeto Inteligente
+                  expone sus lecturas y control de recursos mediante endpoints como:
+                </p>
+                <ul class="meta">
+                  <li><code>/Datastreams/SendData</code></li>
+                  <li><code>/Datastreams/SendState</code></li>
+                  <li><code>/Datastreams/SetDatastream</code></li>
+                </ul>
+                <p>
+                  En el entorno real, este microservicio corre sobre una <strong>ESP32</strong>, utilizando pines
+                  <strong>GPIO</strong> para controlar actuadores y <strong>MQTT</strong> para comunicarse con el resto de servicios.
+                </p>
+              </section>
+
+              <!-- 2. ¿Por qué crear una simulación en Wokwi? -->
+              <section class="block" data-aos="fade-up" data-aos-delay="100">
+                <h3>¿Por qué se creó la simulación en Wokwi?</h3>
+                <ul class="meta">
+                  <li><strong>Validar la lógica sin depender de hardware físico:</strong> permitir pruebas del flujo
+                    completo de datastreams aunque no se tenga la ESP32 disponible.</li>
+                  <li><strong>Entorno reproducible:</strong> cualquier integrante del equipo puede abrir el
+                    proyecto en Wokwi y ver el mismo escenario de pruebas.</li>
+                  <li><strong>Documentación viva:</strong> la simulación sirve como apoyo didáctico para explicar
+                    cómo se comporta el microservicio de Recursos y Datastreams.</li>
+                </ul>
+                <p>
+                  En resumen, la simulación nace para <strong>demostrar el comportamiento lógico</strong> del sistema
+                  en un entorno controlado y accesible, manteniendo la misma estructura conceptual que el
+                  despliegue físico en la ESP32. :contentReference[oaicite:1]{index=1}
+                </p>
+              </section>
+
+              <!-- 3. Limitaciones de Wokwi -->
+              <section class="block" data-aos="fade-up" data-aos-delay="150">
+                <h3>Limitaciones de Wokwi</h3>
+                <p>
+                  Durante el diseño de la simulación se identificaron varias restricciones propias
+                  de la plataforma Wokwi:
+                </p>
+                <ul class="meta">
+                  <li>No permite acceso a Internet real.</li>
+                  <li>No permite conectarse a brokers MQTT externos.</li>
+                  <li>El modelo de ESP32 no incluye un LED integrado en el GPIO2 por defecto.</li>
+                </ul>
+                <p>
+                  Estas limitaciones impiden replicar exactamente el entorno de ejecución de la ESP32 real,
+                  por lo que fue necesario adaptar ciertas partes del microservicio y del montaje físico
+                  dentro del simulador. :contentReference[oaicite:2]{index=2}
+                </p>
+              </section>
+
+              <!-- 4. Decisiones técnicas -->
+              <section class="block" data-aos="fade-up" data-aos-delay="200">
+                <h3>Decisiones técnicas en la simulación</h3>
+                <ul class="meta">
+                  <li>
+                    <strong>Simulación de MQTT:</strong> se creó un cliente MQTT simulado
+                    (<code>mqtt_fake.py</code>) que no realiza conexiones reales, sino que imprime en consola
+                    acciones como “conexión”, publicaciones y suscripciones,
+                    por ejemplo:
+                    <br>
+                    <code>[MQTT SIM] PUBLISH -&gt; topic='iot/ESP32_LED_01/led_interno', payload='on'</code>
+                  </li>
+                  <li>
+                    <strong>Adaptación del microservicio:</strong> el archivo
+                    <code>datastream_service.py</code> se modificó para sustituir el cliente MQTT real
+                    (<code>umqtt.simple</code>) por el cliente simulado. Cada vez que se actualiza un datastream:
+                    <ul>
+                      <li>Se aplica el cambio al actuador (LED) en el esquema de Wokwi.</li>
+                      <li>Se imprime en consola el mensaje MQTT simulado.</li>
+                      <li>Se genera la misma respuesta JSON que produciría el sistema real.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Simulación física del LED:</strong> dado que el modelo no trae un LED en GPIO2, se añadió
+                    manualmente un LED en la simulación conectando <strong>GPIO2 → ánodo</strong> y <strong>GND → cátodo</strong>,
+                    permitiendo visualizar el datastream <code>led_interno</code>.
+                  </li>
+                </ul>
+              </section>
+
+              <!-- 5. Flujo y resultado -->
+              <section class="block" data-aos="fade-up" data-aos-delay="250">
+                <h3>Flujo simulado y resultado</h3>
+                <p>
+                  En la simulación, el microservicio realiza el flujo completo:
+                </p>
+                <ul class="meta">
+                  <li>Carga de la configuración del Objeto Inteligente.</li>
+                  <li>Control del actuador (LED) mediante GPIO.</li>
+                  <li>“Publicación” de mensajes MQTT simulados en consola.</li>
+                  <li>Generación de respuestas JSON equivalentes a las del sistema real.</li>
+                </ul>
+                <p>
+                  Gracias a esta estrategia, se logra observar tanto el comportamiento físico
+                  del actuador en Wokwi como la lógica de integración que tendría con el resto
+                  de microservicios en un entorno real. La única diferencia es que la conexión
+                  MQTT no se ejecuta contra un broker real, sino que se simula por consola. :contentReference[oaicite:3]{index=3}
+                </p>
+              </section>
+
+              <!-- 6. Conclusión -->
+              <section class="block" data-aos="fade-up" data-aos-delay="300">
+                <h3>Conclusión de la simulación</h3>
+                <p>
+                  A pesar de las limitaciones de Wokwi, la solución implementada permite
+                  <strong>simular correctamente el comportamiento</strong> del microservicio de Recursos y Datastreams:
+                </p>
+                <ul class="meta">
+                  <li>El LED virtual actúa como un actuador real.</li>
+                  <li>Las publicaciones MQTT se emulan mediante mensajes en consola.</li>
+                  <li>La lógica del microservicio y las respuestas JSON se mantienen intactas.</li>
+                </ul>
+                <p>
+                  Esto hace que la simulación sea adecuada para mostrar el funcionamiento del
+                  sistema, documentar decisiones y apoyar la explicación del proyecto sin
+                  depender de todo el entorno físico o de un broker MQTT real. :contentReference[oaicite:4]{index=4}
+                </p>
+              </section>
+
+              <!-- 7. Manual y documentación -->
+              <section class="block" data-aos="fade-up" data-aos-delay="350">
+                <h3>Simulación en línea</h3>
+                    <p>
+                    Puedes acceder directamente a la simulación del Objeto Inteligente en Wokwi mediante el siguiente enlace.
+                    </p>
+
+                    <div class="project-actions" style="margin-top:8px;">
+                    <a class="btn btn-primary" 
+                        href="https://wokwi.com/projects/449629809266096129" 
+                        target="_blank" 
+                        rel="noopener noreferrer">
+                        Link de la simulación
+                    </a>
+                    </div>
+              </section>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> NexTech. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" aria-label="Volver arriba" title="Volver arriba">↑</button>
+
+  <!-- Scripts -->
+  <script>
+    // Año en footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menú móvil
+    const menuBtn = document.getElementById('menuToggle');
+    const nav = document.getElementById('primaryNav');
+    if (menuBtn && nav){
+      menuBtn.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+      });
+      nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }));
+    }
+
+    // Scroll-to-top
+    const btn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible');
+    });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      offset: 100,
+      disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    });
+  </script>
+</body>
+</html>

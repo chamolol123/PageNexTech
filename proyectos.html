@@ -34,6 +34,7 @@
         <a href="main.html#empresa">Empresa</a>
         <a href="main.html#servicios">Servicios</a>
         <a href="proyectos.html" class="active">Proyectos</a>
+        <a href="simulacion.html">Simulación</a>
         <a href="main.html#valores">Valores</a>
         <a href="main.html#equipo">Equipo</a>
         <a href="main.html#contacto" class="nav-cta">Contacto</a>
@@ -74,12 +75,14 @@
 
             <!-- Avance -->
             <div class="progress" aria-label="Progreso del proyecto">
-              <div class="progress-bar" style="--pct:78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" role="progressbar">
-                <span class="progress-label">78%</span>
+              <div class="progress-bar" style="--pct:100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+                <span class="progress-label">100%</span>
               </div>
             </div>
 
             <div class="project-body">
+
+              <!-- 1. De dónde nace -->
               <section class="block" data-aos="fade-up" data-aos-delay="50">
                 <h3>De dónde nace</h3>
                 <p>
@@ -90,6 +93,18 @@
                 </p>
               </section>
 
+              <!-- 2. Cliente -->
+              <section class="block" data-aos="fade-up" data-aos-delay="70">
+                <h3>Cliente del proyecto</h3>
+                <p>
+                  Este trabajo fue desarrollado en colaboración con la empresa <strong>Sumothings</strong>,
+                  quien actuó como cliente principal del proyecto. A través de sus requerimientos, se definieron
+                  las funcionalidades clave del Objeto Inteligente, la estructura de los microservicios y la
+                  validación del sistema tanto en hardware real como en simulaciones.
+                </p>
+              </section>
+
+              <!-- 3. Por qué microservicios -->
               <section class="block" data-aos="fade-up" data-aos-delay="100">
                 <h3>¿Por qué microservicios?</h3>
                 <ul class="meta">
@@ -102,13 +117,14 @@
                 </ul>
               </section>
 
+              <!-- 4. Tecnologías utilizadas -->
               <section class="block" data-aos="fade-up" data-aos-delay="150">
                 <h3>Tecnologías utilizadas (actuales)</h3>
                 <ul class="stack">
                   <li><strong>Lenguaje / Framework:</strong> <strong>Python</strong> con <strong>FastAPI</strong> (todos los servicios).</li>
                   <li><strong>Mensajería:</strong> <strong>MQTT</strong> como bus de eventos para telemetría y control.</li>
                   <li><strong>Persistencia semántica:</strong> <strong>Ontologías OWL</strong> (archivos) para modelar
-                    dispositivos, estados y relaciones. Consultas/manipulación con librerías tipo <em>RDFLib</em> /
+                    dispositivos, estados y relaciones. Consultas/manipulación con librerías tipo <em>RDFLib</em> / 
                     <em>OWLReady2</em>. <u>No usamos base de datos relacional</u>.</li>
                   <li><strong>Despliegue:</strong> Raspberry Pi como gateway; componentes seleccionados compilados/adaptados
                     para <strong>ESP32</strong> cuando se requiere ejecutar en el borde.</li>
@@ -120,6 +136,7 @@
                 </ul>
               </section>
 
+              <!-- 5. Prototipo -->
               <section class="block" data-aos="fade-up" data-aos-delay="200">
                 <h3>Prototipo funcional</h3>
                 <p>
@@ -132,6 +149,7 @@
                 </figure>
               </section>
 
+              <!-- 6. Arquitectura -->
               <section class="block" data-aos="fade-up" data-aos-delay="250">
                 <h3>Arquitectura (vista rápida)</h3>
                 <ul class="meta">
@@ -142,12 +160,39 @@
                   <li><strong>Persistencia:</strong> ontologías OWL versionadas en archivos; sin BD relacional.</li>
                 </ul>
               </section>
+
+              <!-- 7. Enlaces útiles -->
+              <section class="block" data-aos="fade-up" data-aos-delay="300">
+                <h3>Enlaces adicionales</h3>
+                <p>
+                  Puedes consultar el manual del proyecto en nuestro repositorio de <strong>GitHub</strong>, y acceder a la documentación completa
+                  de la implementación del sistema.
+                </p>
+                <div class="project-actions" style="margin-top:8px;">
+                  <a class="btn btn-primary"
+                     href="https://github.com/Guejia21/objeto_inteligente/blob/main/README.md"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    Manual del Proyecto
+                  </a>
+
+                  <a class="btn btn-secondary"
+                     href="https://github.com/Guejia21/objeto_inteligente"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    Repositorio GitHub
+                  </a>
+                </div>
+              </section>
+
             </div>
 
+            <!-- Botones -->
             <div class="project-actions">
               <a class="btn btn-primary" href="mailto:contacto@nextech.com?subject=Proyecto%20IoT%20NexTech&body=Quiero%20m%C3%A1s%20detalles%20t%C3%A9cnicos%20del%20proyecto%20IoT%20(FastAPI%20+%20OWL).">Solicitar información</a>
               <a class="btn btn-ghost" href="README.md">README (notas del proyecto)</a>
             </div>
+
           </article>
         </div>
       </div>
